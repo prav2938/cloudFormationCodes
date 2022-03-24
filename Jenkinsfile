@@ -6,11 +6,9 @@ pipeline {
     stages {
         stage('Submit Stack') {
             steps {
-                withCredentials([<object of type com.cloudbees.jenkins.plugins.awscredentials.AmazonWebServicesCredentialsBinding>]) {
+                 withAWS(credentials: 'ravi-demo-credentials', region: 'us-west-2'){
     // some block
 
             sh "aws --version "
-              }
-             }
             }
-            }
+            }}}}
