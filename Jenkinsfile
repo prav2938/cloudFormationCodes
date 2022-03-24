@@ -14,5 +14,6 @@ pipeline {
 ]]) {
     // AWS Code
                      echo "hello"
+                     sh "aws cloudformation create-stack --stack-name s3bucket --template-body file://testing1.json --region 'us-east-1'"
 }
             }}}}
