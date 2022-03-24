@@ -6,9 +6,13 @@ pipeline {
     stages {
         stage('Submit Stack') {
             steps {
-                 withAWS(credentials: 'ravi-demo-credentials', region: 'us-west-2'){
-    // some block
-
-            sh "aws --version "
-            }
+                 withCredentials([[
+    $class: 'AmazonWebServicesCredentialsBinding',
+    credentialsId: "ravi-demo-credentials",
+    accessKeyVariable: 'AWS_ACCESS_KEY_ID',
+    secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
+]]) {
+    // AWS Code
+                     echo "hello"
+}
             }}}}
